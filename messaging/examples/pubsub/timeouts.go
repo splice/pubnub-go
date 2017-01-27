@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/pubnub/go/messaging"
+	"github.com/splicers/pubnub-go/messaging"
 )
 
 var pubnub *messaging.Pubnub

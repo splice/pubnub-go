@@ -4,7 +4,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/pubnub/go/messaging"
+	"github.com/splicers/pubnub-go/messaging"
 )
 
 const (

@@ -6,8 +6,9 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
-	"github.com/pubnub/go/messaging"
-	"github.com/pubnub/go/messaging/tests/utils"
+
+	"github.com/splicers/pubnub-go/messaging"
+	"github.com/splicers/pubnub-go/messaging/tests/utils"
 	"github.com/stretchr/testify/assert"
 	//"log"
 	//"os"

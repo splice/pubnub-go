@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pubnub/go/messaging"
+	"github.com/splicers/pubnub-go/messaging"
 	"github.com/stretchr/testify/assert"
 )
 

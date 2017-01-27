@@ -14,7 +14,7 @@ import (
 	"unicode/utf16"
 	"unicode/utf8"
 
-	"github.com/pubnub/go/messaging"
+	"github.com/splicers/pubnub-go/messaging"
 )
 
 // connectChannels: the connected pubnub channels, multiple channels are stored separated by comma.

@@ -5,7 +5,7 @@ package tests
 import (
 	"encoding/json"
 	//"fmt"
-	"github.com/pubnub/go/messaging"
+	"github.com/splicers/pubnub-go/messaging"
 	"github.com/stretchr/testify/assert"
 	//"log"
 	//"os"

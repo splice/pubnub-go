@@ -35,14 +35,14 @@
 * 3.6.3
  * PAM operations (grant, revoke, audit) now return 403 errors in the Error Callback
 * SetLogging method name changed to LoggingEnabled
-* SetLogOutput added, you can customize the log output now 
+* SetLogOutput added, you can customize the log output now
 * Support to change uuid
-* 3.6 features 
+* 3.6 features
  * HereNow with state (here now's signature has changed, the response has also changed)
  * WhereNow
  * Global Here Now
  * User State (Set, Get, Delete)
- * Presence heartbeat 
+ * Presence heartbeat
  * Presence heartbeat interval
 
 * These are converted to uint16
@@ -62,7 +62,7 @@
 * Error Callback: All the error messages are routed to this callback channel
 * Resume on reconnect
 * You can now "Subscribe with timetoken"
-* An example of Disconnect/Retry has been added in the example 
+* An example of Disconnect/Retry has been added in the example
 * Multiple messages received in a single response from the server will now be split into individual messages
 * Non 200 response will now be bubbled to the client
 * PAM: To use the PAM features in the example please enable PAM from the Pubnub admin console (https://admin.pubnub.com) and replace the publish, subscribe and secret keys in example/pubnubExample.go (line 124).
@@ -73,28 +73,28 @@ We've put together a quick HOWTO video here http://vimeo.com/93523019
 
 ###Get Package
 
-* Use the command `go get github.com/pubnub/go/messaging` to download and install the package
+* Use the command `go get github.com/splicers/pubnub-go/messaging` to download and install the package
 
 ###Run the example
-* Built using Eclipse IDE (juno) 
+* Built using Eclipse IDE (juno)
 * Install golang plugin for Eclipse
-* Using Eclipse Project Explorer browse to the directory `$GOPATH/src/github.com/pubnub/go/messaging/example`, where `$GOPATH` is the workspaces directory of go.
+* Using Eclipse Project Explorer browse to the directory `$GOPATH/src/github.com/splicers/pubnub-go/messaging/example`, where `$GOPATH` is the workspaces directory of go.
 * Run `pubnubExample.go` as a "go application"
 * Look for the application in the "Console" of the Eclipse IDE
 
 ###Running Unit tests (instructions for Mac/Linux, for other dev environments the instructions are similar)
 
 * Open Terminal.
-* Change the directory to 
-`<eclipse-workspace>/src/github.com/pubnub/go/messaging/tests.`
-* Run the command `go test -i` to install the packages. 
+* Change the directory to
+`<eclipse-workspace>/src/github.com/splicers/pubnub-go/messaging/tests.`
+* Run the command `go test -i` to install the packages.
 * And then run the command `go test` to run test cases.
 
 ###Use pubnub in your project
 
 * Install golang plugin for Eclipse.
-* Use the command go get github.com/pubnub/go/messaging to download and install the package.
-* Open terminal/command prompt. Browse to the directory ` $GOPATH/src/github.com/pubnub/go/messaging/ `
+* Use the command go get github.com/splicers/pubnub-go/messaging to download and install the package.
+* Open terminal/command prompt. Browse to the directory ` $GOPATH/src/github.com/splicers/pubnub-go/messaging/ `
 * Run the command `go install`.
 * Go to eclipse and create a new "go project". Enter the project name.
 * Create a new "go file" in the "src" directory of the new project. For this example choose the "Command Source File" under the "Source File Type" with "Empty Main Function".
@@ -106,7 +106,7 @@ We've put together a quick HOWTO video here http://vimeo.com/93523019
 import (
     // Other imports...
     "fmt"
-    "github.com/pubnub/go/messaging"
+    "github.com/splicers/pubnub-go/messaging"
 )
 ```
 
@@ -118,7 +118,7 @@ fmt.Println("PubNub Api for go;", messaging.VersionInfo())
 
 * Run the example as a "go application"
 * This application will print the version info of the PubNub Api.
-* For the detailed usage of the PunNub API, please refer to the rest of the ReadMe or the pubnubExample.go file under ` $GOPATH/src/github.com/pubnub/go/messaging/example `
+* For the detailed usage of the PunNub API, please refer to the rest of the ReadMe or the pubnubExample.go file under ` $GOPATH/src/github.com/splicers/pubnub-go/messaging/example `
 
 
 In addition to Eclipse, this has also been tested with Go 1.0.3 on Linux using IntelliJ IDEA 12.
@@ -154,7 +154,7 @@ We've included a demo console app which documents all the functionality of the c
 * Get User State
 * WhereNow
 * GlobalHereNow
-* Change UUID 
+* Change UUID
 
 ###Quick Implementation Examples
 
@@ -222,7 +222,7 @@ func handleResult(successChannel, errorChannel chan []byte, timeoutVal int64, ac
             return
         case <-timeout:
             fmt.Println(fmt.Sprintf("%s Handler timeout after %d secs", action, timeoutVal))
-			fmt.Println("")            
+			fmt.Println("")
             return
         }
     }
@@ -332,7 +332,7 @@ Initialize a new Pubnub instance.
         var channelCallback = make(chan []byte)
         go pubInstance.History(<pubnub channel>, <no of items to fetch>, <start time>, <end time>, false, channelCallback, errorChannel)
         //example: go _pub.History(<pubnub channel>, 100, 0, 0, false, channelCallback, errorChannel)
-        go handleResult(channel, errorChannel, messaging.GetNonSubscribeTimeout(), "Detailed History") 
+        go handleResult(channel, errorChannel, messaging.GetNonSubscribeTimeout(), "Detailed History")
         // please goto the top of this file see the implementation of handleResult
 ```
 
@@ -388,7 +388,7 @@ Initialize a new Pubnub instance.
 ```go
         //Init pubnub instance
 
-        pubInstance.CloseExistingConnection() 
+        pubInstance.CloseExistingConnection()
 ```
 
 #### GrantSubscribe
@@ -597,7 +597,7 @@ Initialize a new Pubnub instance.
 ```go
         //Init pubnub instance
 
-        pubInstance.Abort()  
+        pubInstance.Abort()
 ```
 
 

@@ -7,10 +7,11 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/pubnub/go/messaging"
-	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
+
+	"github.com/splicers/pubnub-go/messaging"
+	"github.com/stretchr/testify/assert"
 )
 
 // TestWildcardSubscribeEnd prints a message on the screen to mark the beginning of
