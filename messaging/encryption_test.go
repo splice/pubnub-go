@@ -22,7 +22,7 @@ func TestPad(t *testing.T) {
 	b := []byte(`{
 	"kind": "click",
 	"user": {"key" : "user@test.com"},
-	"creationDate": 2416012257208,
+	"creationDate": 2,
 	"key": "54651fa39868621628000002",
 	"url": "http://www.google.com"
 	}`)
@@ -31,7 +31,7 @@ func TestPad(t *testing.T) {
 	jsonSerialized, _ := json.Marshal(badMsg)
 
 	actual := EncryptString("enigma", fmt.Sprintf("%s", jsonSerialized))
-	expected := "yzJ2MMyt8So18nNXm4m3Dl0XuYAOJFj2JXG8P3BGlCsDsqM44ReH15MRGbEkJZCSqgMiX1wUK44Qz8gsTcmGcZm/7KtOa+kRnvgDpNkTuBUrDqSjmYeuBLqRIEIfoGrRNljbFmP1W9Zv8iVbJMmovF+gmNNiIzlC3J9dHK51/OgW7s2EASMQJr3UJZ26PoFmmXY/wYN+2EyRnT4PBRCocQ=="
+	expected := "yzJ2MMyt8So18nNXm4m3DjLvlB0UjbIDQ/jLc+gB0MvOLDkYbmOycOH4K7VT7T1ZnigDY7KadxSZ8a9xmO+86voPoPccaQQ78QLSh61AgA9V6s982QWhA9P3OXBpoulUum2QpGZM7A8BXVtYgwlH/0HUQLOGvbZzp2vrCPXHOYk="
 
 	assert.Equal(expected, actual)
 }

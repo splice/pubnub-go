@@ -1174,7 +1174,7 @@ func (pub *Pubnub) sendPublishRequest(channel, publishURLString string,
 	callbackChannel, errorChannel chan []byte) {
 
 	u := &url.URL{Path: jsonBytes}
-	encodedPath := u.String()
+	encodedPath := fixGo18URLPath(u.String())
 	pub.infoLogger.Printf("INFO: Publish: json: %s, encoded: %s", jsonBytes, encodedPath)
 
 	publishURL := fmt.Sprintf("%s%s", publishURLString, encodedPath)
@@ -1204,7 +1204,7 @@ func (pub *Pubnub) sendPublishRequest(channel, publishURLString string,
 
 	if metaBytes != nil {
 		metaEncoded := &url.URL{Path: string(metaBytes)}
-		metaEncodedPath := metaEncoded.String()
+		metaEncodedPath := fixGo18URLPath(metaEncoded.String())
 
 		publishURL = fmt.Sprintf("%s&meta=%s", publishURL, metaEncodedPath)
 	}
@@ -1259,7 +1259,7 @@ func (pub *Pubnub) encodeURL(urlString string) string {
 	}
 	q := reqURL.Query()
 	reqURL.RawQuery = q.Encode()
-	return reqURL.String()
+	return fixGo18URLPath(reqURL.String())
 }
 
 // pub.invalidMessage takes the message in form of a interface and checks if the message is nil or empty.
@@ -4384,4 +4384,11 @@ func encryptCipherKey(cipherKey string) []byte {
 
 	sha256String := hash.Sum(nil)[:16]
 	return []byte(hex.EncodeToString(sha256String))
+}
+
+func fixGo18URLPath(path string) string {
+	if strings.HasPrefix(path, "./") {
+		return strings.TrimPrefix(path, "./")
+	}
+	return path
 }
